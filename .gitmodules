@@ -13,3 +13,6 @@
 [submodule "rednose_repo"]
 	path = rednose_repo
 	url = ../../commaai/rednose.git
+[submodule "tinygrad"]
+	path = tinygrad
+	url = https://github.com/geohot/tinygrad.git
