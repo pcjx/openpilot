@@ -74,7 +74,9 @@ class CarState(CarStateBase):
       ret.steerFaultTemporary = cp.vl["Steering_Torque"]["Steer_Warning"] == 1
       ret.cruiseState.nonAdaptive = cp_cam.vl["ES_DashStatus"]["Conventional_Cruise"] == 1
       self.es_lkas_msg = copy.copy(cp_cam.vl["ES_LKAS_State"])
-    self.es_distance_msg = copy.copy(cp_cam.vl["ES_Distance"])
+
+    cp_es_distance = cp_body if self.car_fingerprint in GLOBAL_GEN2 else cp_cam
+    self.es_distance_msg = copy.copy(cp_es_distance.vl["ES_Distance"])
     self.es_dashstatus_msg = copy.copy(cp_cam.vl["ES_DashStatus"])
 
     return ret
@@ -90,11 +92,37 @@ class CarState(CarStateBase):
       ("RR", "Wheel_Speeds"),
       ("Brake", "Brake_Status"),
     ]
-
     checks = [
       ("CruiseControl", 20),
       ("Wheel_Speeds", 50),
       ("Brake_Status", 50),
+    ]
+
+    return signals, checks
+
+  @staticmethod
+  def get_global_es_distance_signals():
+    signals = [
+      ("COUNTER", "ES_Distance"),
+      ("Signal1", "ES_Distance"),
+      ("Cruise_Fault", "ES_Distance"),
+      ("Cruise_Throttle", "ES_Distance"),
+      ("Signal2", "ES_Distance"),
+      ("Car_Follow", "ES_Distance"),
+      ("Signal3", "ES_Distance"),
+      ("Cruise_Brake_Active", "ES_Distance"),
+      ("Distance_Swap", "ES_Distance"),
+      ("Cruise_EPB", "ES_Distance"),
+      ("Signal4", "ES_Distance"),
+      ("Close_Distance", "ES_Distance"),
+      ("Signal5", "ES_Distance"),
+      ("Cruise_Cancel", "ES_Distance"),
+      ("Cruise_Set", "ES_Distance"),
+      ("Cruise_Resume", "ES_Distance"),
+      ("Signal6", "ES_Distance"),
+    ]
+    checks = [
+      ("ES_Distance", 20),
     ]
 
     return signals, checks
@@ -263,28 +291,8 @@ class CarState(CarStateBase):
       ]
 
       if CP.carFingerprint not in GLOBAL_GEN2:
-        signals += [
-          ("COUNTER", "ES_Distance"),
-          ("Signal1", "ES_Distance"),
-          ("Cruise_Fault", "ES_Distance"),
-          ("Cruise_Throttle", "ES_Distance"),
-          ("Signal2", "ES_Distance"),
-          ("Car_Follow", "ES_Distance"),
-          ("Signal3", "ES_Distance"),
-          ("Cruise_Brake_Active", "ES_Distance"),
-          ("Distance_Swap", "ES_Distance"),
-          ("Cruise_EPB", "ES_Distance"),
-          ("Signal4", "ES_Distance"),
-          ("Close_Distance", "ES_Distance"),
-          ("Signal5", "ES_Distance"),
-          ("Cruise_Cancel", "ES_Distance"),
-          ("Cruise_Set", "ES_Distance"),
-          ("Cruise_Resume", "ES_Distance"),
-          ("Signal6", "ES_Distance"),
-        ]
-        checks += [
-          ("ES_Distance", 20),
-        ]
+        signals += CarState.get_global_es_distance_signals()[0]
+        checks += CarState.get_global_es_distance_signals()[1]
 
     return CANParser(DBC[CP.carFingerprint]["pt"], signals, checks, 2)
 
@@ -292,6 +300,8 @@ class CarState(CarStateBase):
   def get_body_can_parser(CP):
     if CP.carFingerprint in GLOBAL_GEN2:
       signals, checks = CarState.get_common_global_signals()
+      signals += CarState.get_global_es_distance_signals()[0]
+      checks += CarState.get_global_es_distance_signals()[1]
       return CANParser(DBC[CP.carFingerprint]["pt"], signals, checks, 1)
 
     return None

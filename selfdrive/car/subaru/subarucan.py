@@ -16,7 +16,7 @@ def create_steering_status(packer):
 
 def create_es_distance(packer, es_distance_msg, bus, pcm_cancel_cmd):
   values = copy.copy(es_distance_msg)
-  values["COUNTER"] = (values["COUNTER"]) % 0x10
+  values["COUNTER"] = (values["COUNTER"] + 1) % 0x10
   if pcm_cancel_cmd:
     values["Cruise_Cancel"] = 1
   return packer.make_can_msg("ES_Distance", bus, values)

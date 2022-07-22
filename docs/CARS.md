@@ -17,7 +17,7 @@ A supported vehicle is one that just works when you install a comma device. Ever
 - <a href="##"><img valign="top" src="assets/icon-star-empty.svg" width="22" /></a> - Limited ability to make tighter turns.
 
 
-# 196 Supported Cars
+# 197 Supported Cars
 
 |Make|Model|Supported Package|openpilot ACC|Stop and Go|Steer to 0|Steering Torque|
 |---|---|---|:---:|:---:|:---:|:---:|
@@ -137,6 +137,7 @@ A supported vehicle is one that just works when you install a comma device. Ever
 |Subaru|Forester 2019-21|All|<a href="##"><img valign="top" src="assets/icon-star-empty.svg" width="22" /></a>|<a href="##"><img valign="top" src="assets/icon-star-full.svg" width="22" /></a>|<a href="##"><img valign="top" src="assets/icon-star-full.svg" width="22" /></a>|<a href="##"><img valign="top" src="assets/icon-star-full.svg" width="22" /></a>|
 |Subaru|Impreza 2017-19|EyeSight|<a href="##"><img valign="top" src="assets/icon-star-empty.svg" width="22" /></a>|<a href="##"><img valign="top" src="assets/icon-star-full.svg" width="22" /></a>|<a href="##"><img valign="top" src="assets/icon-star-full.svg" width="22" /></a>|<a href="##"><img valign="top" src="assets/icon-star-empty.svg" width="22" /></a>|
 |Subaru|Impreza 2020-22|EyeSight|<a href="##"><img valign="top" src="assets/icon-star-empty.svg" width="22" /></a>|<a href="##"><img valign="top" src="assets/icon-star-full.svg" width="22" /></a>|<a href="##"><img valign="top" src="assets/icon-star-full.svg" width="22" /></a>|<a href="##"><img valign="top" src="assets/icon-star-full.svg" width="22" /></a>|
+|Subaru|Outback 2020-22|All|<a href="##"><img valign="top" src="assets/icon-star-empty.svg" width="22" /></a>|<a href="##"><img valign="top" src="assets/icon-star-full.svg" width="22" /></a>|<a href="##"><img valign="top" src="assets/icon-star-full.svg" width="22" /></a>|<a href="##"><img valign="top" src="assets/icon-star-full.svg" width="22" /></a>|
 |Subaru|XV 2018-19|EyeSight|<a href="##"><img valign="top" src="assets/icon-star-empty.svg" width="22" /></a>|<a href="##"><img valign="top" src="assets/icon-star-full.svg" width="22" /></a>|<a href="##"><img valign="top" src="assets/icon-star-full.svg" width="22" /></a>|<a href="##"><img valign="top" src="assets/icon-star-empty.svg" width="22" /></a>|
 |Subaru|XV 2020-21|EyeSight|<a href="##"><img valign="top" src="assets/icon-star-empty.svg" width="22" /></a>|<a href="##"><img valign="top" src="assets/icon-star-full.svg" width="22" /></a>|<a href="##"><img valign="top" src="assets/icon-star-full.svg" width="22" /></a>|<a href="##"><img valign="top" src="assets/icon-star-full.svg" width="22" /></a>|
 |Škoda|Kamiq 2021[<sup>5</sup>](#footnotes)|Driver Assistance|<a href="##"><img valign="top" src="assets/icon-star-empty.svg" width="22" /></a>|<a href="##"><img valign="top" src="assets/icon-star-full.svg" width="22" /></a>|<a href="##"><img valign="top" src="assets/icon-star-full.svg" width="22" /></a>|<a href="##"><img valign="top" src="assets/icon-star-full.svg" width="22" /></a>|
